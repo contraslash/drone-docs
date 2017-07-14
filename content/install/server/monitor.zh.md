@@ -1,19 +1,24 @@
 +++
 date = "2017-04-15T14:39:04+02:00"
 title = "Configure Prometheus"
-url = "configure-prometheus"
+url = "zh/configure-prometheus"
 
 [menu.install]
-  identifier = "configure-prometheus"
+  identifier = "configure-prometheus-zh"
   parent = "install_server"
-  weight = 8
+  weight = 7
 +++
 
+<!--This feature is only available in the [Enterprise Edition](https://drone.io/enterprise/)-->
+
 {{% alert enterprise %}}
-This feature is only available in the [Enterprise Edition](https://drone.io/enterprise/)
+这个特性只在企业版中包含
 {{% /alert %}}
 
-Drone is compatible with Prometheus and exposes a `/metrics` endpoint. Please note that access to the metrics endpoint is restricted and requires an authorization token with administrative privileges.
+<!--Drone is compatible with Prometheus and exposes a `/metrics` endpoint. Please note that access to the metrics endpoint is restricted and requires an authorization token with administrative privileges.-->
+
+Drone 支持 Prometheus 并暴露 `/metrics` 终端。注意指标终端的访问是受限的，需要认证令牌和管理员权限。
+
 
 ```nohighlight
 global:
@@ -27,9 +32,13 @@ scrape_configs:
        - targets: ['drone.domain.com']
 ```
 
-# Authorization
+<!--# Authorization-->
 
-An administrator will need to generate a user api token and configure in the prometheus configuration file as a bearer token. Please see the following example:
+# 授权
+
+<!--An administrator will need to generate a user api token and configure in the prometheus configuration file as a bearer token. Please see the following example:-->
+
+管理员需要生成用户 api token，并设置 prometheus 配置文件为 bearer token。使用的例子：
 
 ```diff
 global:
@@ -43,9 +52,13 @@ scrape_configs:
        - targets: ['drone.domain.com']
 ```
 
-# Metric Reference
+<!--# Metric Reference-->
 
-List of prometheus metrics specific to Drone:
+# 指标参考
+
+<!--List of prometheus metrics specific to Drone:-->
+
+Drone 的 Prometheus 指标
 
 ```
 # HELP drone_pending_jobs Total number of pending build processes.
@@ -62,7 +75,9 @@ drone_running_jobs 0
 drone_user_count 15
 ```
 
-List of prometheus metrics for server resource usage:
+<!--List of prometheus metrics for server resource usage:-->
+
+服务器资源使用情况的 Prometheus 指标
 
 ```
 # HELP go_gc_duration_seconds A summary of the GC invocation durations.
